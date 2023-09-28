@@ -1,4 +1,3 @@
-import React, { MouseEventHandler } from "react";
 import "./Button.style.css";
 
 interface Props extends React.ComponentProps<"button"> {
@@ -10,7 +9,8 @@ const Button: React.FC<Props> = ({
   children,
   ...buttonProps
 }) => {
-  const onClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onClick = (event: any) => {
     window.alert(
       `onClick triggered: event: ${event}, custom text: ${customButtonText}`
     );
